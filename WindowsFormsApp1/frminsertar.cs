@@ -44,5 +44,10 @@ namespace WindowsFormsApp1
             valores.Add(Dialimg.SafeFileName);
             datos.insertar(valores);
         }
+
+        private void frminsertar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

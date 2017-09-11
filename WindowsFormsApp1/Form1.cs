@@ -75,5 +75,16 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<string> valores = new List<string>();
+            valores.Add(lista.SelectedRows[0].Cells[1].Value.ToString());
+            valores.Add(lista.SelectedRows[0].Cells[2].Value.ToString());
+            valores.Add(lista.SelectedRows[0].Cells[3].Value.ToString());
+            valores.Add(lista.SelectedRows[0].Cells[4].Value.ToString());
+            frmmodificar form_mod = new frmmodificar(valores);
+            form_mod.Show();
+        }
     }
 }
