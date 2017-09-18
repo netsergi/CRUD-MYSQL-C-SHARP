@@ -49,40 +49,36 @@
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnombre.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtnombre.Location = new System.Drawing.Point(32, 74);
-            this.txtnombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtnombre.Location = new System.Drawing.Point(21, 48);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(290, 40);
+            this.txtnombre.Size = new System.Drawing.Size(195, 31);
             this.txtnombre.TabIndex = 0;
             // 
             // txtdni
             // 
             this.txtdni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdni.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtdni.Location = new System.Drawing.Point(32, 311);
-            this.txtdni.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdni.Location = new System.Drawing.Point(21, 202);
             this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(210, 40);
+            this.txtdni.Size = new System.Drawing.Size(141, 31);
             this.txtdni.TabIndex = 1;
             // 
             // txtapellidos
             // 
             this.txtapellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtapellidos.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtapellidos.Location = new System.Drawing.Point(32, 194);
-            this.txtapellidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtapellidos.Location = new System.Drawing.Point(21, 126);
             this.txtapellidos.Name = "txtapellidos";
-            this.txtapellidos.Size = new System.Drawing.Size(438, 40);
+            this.txtapellidos.Size = new System.Drawing.Size(293, 31);
             this.txtapellidos.TabIndex = 2;
             // 
             // lblnombre
             // 
             this.lblnombre.AutoSize = true;
             this.lblnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnombre.Location = new System.Drawing.Point(24, 31);
-            this.lblnombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblnombre.Location = new System.Drawing.Point(16, 20);
             this.lblnombre.Name = "lblnombre";
-            this.lblnombre.Size = new System.Drawing.Size(119, 33);
+            this.lblnombre.Size = new System.Drawing.Size(87, 25);
             this.lblnombre.TabIndex = 3;
             this.lblnombre.Text = "Nombre";
             // 
@@ -90,10 +86,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 268);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 174);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 33);
+            this.label1.Size = new System.Drawing.Size(47, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "DNI";
             // 
@@ -101,10 +96,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 151);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(16, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 33);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Apellidos";
             // 
@@ -113,10 +107,9 @@
             this.label3.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(519, 31);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(346, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 56);
+            this.label3.Size = new System.Drawing.Size(179, 37);
             this.label3.TabIndex = 7;
             this.label3.Text = "Fotografia";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,10 +117,9 @@
             // btninsertar
             // 
             this.btninsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btninsertar.Location = new System.Drawing.Point(28, 22);
-            this.btninsertar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btninsertar.Location = new System.Drawing.Point(19, 14);
             this.btninsertar.Name = "btninsertar";
-            this.btninsertar.Size = new System.Drawing.Size(249, 72);
+            this.btninsertar.Size = new System.Drawing.Size(166, 47);
             this.btninsertar.TabIndex = 8;
             this.btninsertar.Text = "Insertar";
             this.btninsertar.UseVisualStyleBackColor = true;
@@ -136,10 +128,9 @@
             // btncerrar
             // 
             this.btncerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncerrar.Location = new System.Drawing.Point(486, 22);
-            this.btncerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btncerrar.Location = new System.Drawing.Point(324, 14);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(237, 72);
+            this.btncerrar.Size = new System.Drawing.Size(158, 47);
             this.btncerrar.TabIndex = 9;
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = true;
@@ -148,10 +139,9 @@
             // btncargarimg
             // 
             this.btncargarimg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncargarimg.Location = new System.Drawing.Point(519, 337);
-            this.btncargarimg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btncargarimg.Location = new System.Drawing.Point(346, 219);
             this.btncargarimg.Name = "btncargarimg";
-            this.btncargarimg.Size = new System.Drawing.Size(268, 66);
+            this.btncargarimg.Size = new System.Drawing.Size(179, 43);
             this.btncargarimg.TabIndex = 10;
             this.btncargarimg.Text = "Cargar Imagen";
             this.btncargarimg.UseVisualStyleBackColor = true;
@@ -162,27 +152,25 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btninsertar);
             this.panel1.Controls.Add(this.btncerrar);
-            this.panel1.Location = new System.Drawing.Point(32, 472);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(21, 307);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(755, 122);
+            this.panel1.Size = new System.Drawing.Size(504, 80);
             this.panel1.TabIndex = 11;
             // 
             // pboximg
             // 
-            this.pboximg.Location = new System.Drawing.Point(519, 92);
-            this.pboximg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pboximg.Location = new System.Drawing.Point(346, 60);
             this.pboximg.Name = "pboximg";
-            this.pboximg.Size = new System.Drawing.Size(268, 234);
+            this.pboximg.Size = new System.Drawing.Size(179, 152);
             this.pboximg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboximg.TabIndex = 6;
             this.pboximg.TabStop = false;
             // 
             // frminsertar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 634);
+            this.ClientSize = new System.Drawing.Size(545, 412);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btncargarimg);
             this.Controls.Add(this.label3);
@@ -193,8 +181,8 @@
             this.Controls.Add(this.txtapellidos);
             this.Controls.Add(this.txtdni);
             this.Controls.Add(this.txtnombre);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frminsertar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar usuario";
             this.Load += new System.EventHandler(this.frminsertar_Load);
             this.panel1.ResumeLayout(false);

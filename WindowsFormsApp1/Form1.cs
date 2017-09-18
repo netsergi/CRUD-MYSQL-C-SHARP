@@ -18,56 +18,63 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Generar_ColFotos (DataTable datos)
+        public void Generar_ColFotos (DataTable datos, DataGridView lista)
         {
-            DataGridViewImageColumn colimg = new DataGridViewImageColumn();
-            colimg.HeaderText = "FOTOS";
-            lista.Columns.Add(colimg);
-            colimg.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            if (!lista.Columns.Contains("colfotos"))
+            {
+                DataGridViewImageColumn colimg = new DataGridViewImageColumn();
+                colimg.HeaderText = "FOTOS";
+                colimg.Name = "colfotos";
+                lista.Columns.Add(colimg);
+                colimg.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            }
+                
             int i = 0;
             if (Directory.Exists(Application.StartupPath + "\\fotos"))
             {
-                foreach (DataGridViewRow row in lista.Rows)
+                foreach (DataGridViewRow fila in lista.Rows)
                 {
-                    string path = Application.StartupPath + "\\fotos\\" + datos.Rows[i][4].ToString();
-                    if (File.Exists(path))
-                    {
-                        Bitmap img = new Bitmap(path);
-                        row.Cells[5].Value = img;
-                        i++;
-                    }
-                    else
-                    {
-                        row.Cells[5].Value = Properties.Resources.error;
-                    }
+                   string path = Application.StartupPath + "\\fotos\\" + fila.Cells[4].Value.ToString();
+                   if (File.Exists(path))
+                   {
+                       Bitmap img = new Bitmap(path);
+                       fila.Cells[5].Value = img;                       
+                   }
+                   else
+                   {
+                       fila.Cells[5].Value = Properties.Resources.error;
+                   }
+                   if (i < datos.Rows.Count) i++;
                 }
-            }
-            else
-            {
+             }
+             else
+             {
                 Directory.CreateDirectory(Application.StartupPath + "\\fotos");
-            }
+             }
         }
 
-        private void llenarltabla()
+        public void llenarltabla()
         {
             db usuarios = new db();
-            DataTable datos;
-            datos = usuarios.cargar();
-            lista.DataSource = datos;     
+            DataTable personas = new DataTable();
+            personas = usuarios.cargar();
+            lista.DataSource = personas;
+            Generar_ColFotos(personas, lista);
             lista.Columns[0].Visible = false;
             lista.Columns[4].Visible = false;
-            Generar_ColFotos(datos);
-        }
+                    
+         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             lista.RowTemplate.Height = 120;
-            llenarltabla();           
+            llenarltabla();
+            barraRegistros.Text += lista.Rows.Count.ToString();
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frminsertar form_Ins = new frminsertar();
+            frminsertar form_Ins = new frminsertar(lista, estado);
             form_Ins.Show();            
         }
 
@@ -78,13 +85,26 @@ namespace WindowsFormsApp1
 
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            List<string> valores = new List<string>();
-            valores.Add(lista.SelectedRows[0].Cells[1].Value.ToString());
-            valores.Add(lista.SelectedRows[0].Cells[2].Value.ToString());
-            valores.Add(lista.SelectedRows[0].Cells[3].Value.ToString());
-            valores.Add(lista.SelectedRows[0].Cells[4].Value.ToString());
-            frmmodificar form_mod = new frmmodificar(valores);
-            form_mod.Show();
+                List<string> valores = new List<string>();
+                valores.Add(lista.SelectedRows[0].Cells[1].Value.ToString());
+                valores.Add(lista.SelectedRows[0].Cells[2].Value.ToString());
+                valores.Add(lista.SelectedRows[0].Cells[3].Value.ToString());
+                valores.Add(lista.SelectedRows[0].Cells[4].Value.ToString());
+                valores.Add(lista.SelectedRows[0].Cells[0].Value.ToString());
+                int i = 0;
+                bool salir = false;
+                while (!salir)
+                {
+                    if (valores[0] == lista.Rows[i].Cells[1].Value.ToString())
+                    {
+                    salir = true;
+                    }
+                    if (!salir) i++;
+                }
+                valores.Add(i.ToString());
+                frmmodificar form_mod = new frmmodificar(valores, lista);
+                form_mod.Show();   
+                
         }
     }
 }

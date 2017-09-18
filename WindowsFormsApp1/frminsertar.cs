@@ -12,9 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class frminsertar : Form
     {
-        public frminsertar()
+        public DataGridView lista;
+        public ToolStrip estado;
+        public frminsertar(DataGridView lista, ToolStrip estado)
         {
             InitializeComponent();
+            this.lista = lista;
+            this.estado = estado;
         }
 
         private void btncargarimg_Click(object sender, EventArgs e)
@@ -43,6 +47,16 @@ namespace WindowsFormsApp1
             valores.Add(txtdni.Text);
             valores.Add(Dialimg.SafeFileName);
             datos.insertar(valores);
+            DataTable dt = datos.cargar();
+            lista.DataSource = null;
+            lista.Columns.Clear();
+            lista.DataSource = dt;
+            lista.Columns[0].Visible = false;
+            lista.Columns[4].Visible = false;
+            Form1 frm_ini = new Form1();
+            frm_ini.Generar_ColFotos(dt, lista);
+            estado.Items["barraRegistros"].Text = "Total Registros: " + lista.Rows.Count;
+            this.Close();            
         }
 
         private void frminsertar_Load(object sender, EventArgs e)

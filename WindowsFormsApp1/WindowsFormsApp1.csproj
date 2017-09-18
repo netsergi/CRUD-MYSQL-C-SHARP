@@ -117,6 +117,7 @@
     <None Include="bin\Debug\fotos\error.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\3-2-database-free-download-png.png" />
     <Content Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

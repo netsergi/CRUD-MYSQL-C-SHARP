@@ -63,6 +63,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3_2_database_free_download_png {
+            get {
+                object obj = ResourceManager.GetObject("3-2-database-free-download-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_user_icon__icon_search_engine_28 {
             get {
                 object obj = ResourceManager.GetObject("add-user-icon--icon-search-engine-28", resourceCulture);

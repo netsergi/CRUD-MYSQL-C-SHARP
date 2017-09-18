@@ -53,6 +53,18 @@ namespace WindowsFormsApp1
             conex.Close();
         }
 
+        public void modifcar(List<string> valores)
+        {
+            conex.Open();
+            string sql = "UPDATE usuarios SET NOMBRE='" + valores[0] + "', APELLIDOS='" + valores[1] + "', DNI='" + valores[2] + "', FOTO='" + valores[3] + "' WHERE ID = " + valores[4] +";";
+            MySqlCommand sql_mod = new MySqlCommand(sql, conex);
+            MySqlDataReader LeerDatos = sql_mod.ExecuteReader();
+            while (LeerDatos.Read())
+            { }
+            conex.Close();
+        
+        }
+
 
     }
 }
