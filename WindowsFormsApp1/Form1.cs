@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Drawing;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        db usuarios = new db();
         public Form1()
         {
             InitializeComponent();
@@ -54,8 +56,7 @@ namespace WindowsFormsApp1
         }
 
         public void llenarltabla()
-        {
-            db usuarios = new db();
+        {   
             DataTable personas = new DataTable();
             personas = usuarios.cargar();
             lista.DataSource = personas;
@@ -105,6 +106,25 @@ namespace WindowsFormsApp1
                 frmmodificar form_mod = new frmmodificar(valores, lista);
                 form_mod.Show();   
                 
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String registro = lista.SelectedRows[0].Cells[1].Value.ToString() + " " + lista.SelectedRows[0].Cells[2].Value.ToString();
+            if (MessageBox.Show("Desea realmente eliminar de la tabla el registro: \n\n" + registro + "?.", "Eliminar registro?", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+            {
+                int id = int.Parse(lista.SelectedRows[0].Cells[0].Value.ToString());
+                usuarios.borrar(id);
+                lista.DataSource = null;
+                lista.Columns.Clear();
+                llenarltabla();
+                barraRegistros.Text = "Total registros: " + lista.Rows.Count.ToString();
+            }
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

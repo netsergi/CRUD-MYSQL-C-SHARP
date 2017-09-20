@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
         private List<string> valores;
         public DataGridView lista;
+        db datos = new db();
         public frmmodificar(List<string> valores, DataGridView lista)
         {
             InitializeComponent();
@@ -53,9 +54,12 @@ namespace WindowsFormsApp1
         private void btnmodificar_Click(object sender, EventArgs e)
         {
             asignar_valores();
-            db datos = new db();
-            datos.modifcar(valores);
-            actualizarLista();            
+            bool resultado = datos.Controlar_errores(valores);
+            if (!resultado)
+            {
+                datos.modifcar(valores);
+                actualizarLista();
+            }          
         }
 
         private void btncargarimg_Click(object sender, EventArgs e)

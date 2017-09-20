@@ -14,6 +14,9 @@ namespace WindowsFormsApp1
     {
         public DataGridView lista;
         public ToolStrip estado;
+        db datos = new db();
+        List<string> valores = new List<string>();
+
         public frminsertar(DataGridView lista, ToolStrip estado)
         {
             InitializeComponent();
@@ -38,16 +41,16 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        private void btninsertar_Click(object sender, EventArgs e)
+        private void asignar_valores()
         {
-            db datos = new db();
-            List<string> valores = new List<string>();
             valores.Add(txtnombre.Text);
             valores.Add(txtapellidos.Text);
             valores.Add(txtdni.Text);
             valores.Add(Dialimg.SafeFileName);
-            datos.insertar(valores);
-            DataTable dt = datos.cargar();
+        }
+
+        private void actualizar_lista(DataTable dt)
+        {
             lista.DataSource = null;
             lista.Columns.Clear();
             lista.DataSource = dt;
@@ -56,7 +59,19 @@ namespace WindowsFormsApp1
             Form1 frm_ini = new Form1();
             frm_ini.Generar_ColFotos(dt, lista);
             estado.Items["barraRegistros"].Text = "Total Registros: " + lista.Rows.Count;
-            this.Close();            
+            this.Close();
+        }
+
+        private void btninsertar_Click(object sender, EventArgs e)
+        {
+            asignar_valores();
+            bool resultado = datos.Controlar_errores(valores);
+            if (!resultado)
+            {
+                datos.insertar(valores);
+                DataTable dt = datos.cargar();
+                actualizar_lista(dt);
+            }
         }
 
         private void frminsertar_Load(object sender, EventArgs e)

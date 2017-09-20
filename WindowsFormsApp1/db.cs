@@ -6,6 +6,7 @@ using System.Linq;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApp1
@@ -35,12 +36,23 @@ namespace WindowsFormsApp1
                 MySqlCommand cmd = new MySqlCommand(sql, conex);
                 MySqlDataReader rmysql = cmd.ExecuteReader();
                 datos.Load(rmysql);
-                conex.Close();
+                conex.Close(); 
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show("Se ha producido el siguiente error: \n\n" + ex.GetType().ToString() + ":\n\n" + ex.Message.ToString(),"error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }            
+                int error = ex.Number;
+                if (error == 1042)
+                {
+                    string stringerr = "No se puede conectar con el Servidor de la base de datos. Puede ser debido a: \n\n > Un fallo en la conexión a internet \n > Debido a una incidencia con el Servidor. ";
+                    MessageBox.Show(stringerr, "ERROR AL CONECTAR CON LA BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(1);
+                }
+                else
+                {
+                    MessageBox.Show("Se ha producido el siguiente error: \n\n" + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);                   
+                }
+
+            }  
             return datos;
         }
 
@@ -63,6 +75,35 @@ namespace WindowsFormsApp1
             { }
             conex.Close();
         
+        }
+
+        public bool Controlar_errores(List<string> valores)
+        {
+            bool resultado = false;
+            for (int i = 0; i <= valores.Count -1; i++)
+            {
+                if (String.IsNullOrEmpty(valores[i]) && (i!= 3))
+                {
+                    MessageBox.Show("No pueden quedar campos en blanco", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    resultado = true;
+                    break;
+                }
+            }
+            if (!Regex.IsMatch(valores[2], @"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]$"))
+            {
+                MessageBox.Show("El DNI no es correcto, el formato correcto es de 8 numeros y una letra.", "Error en el DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                resultado = true;
+            }
+            return resultado;
+        }
+
+        public void borrar(int id)
+        {
+            conex.Open();
+            string sql = "DELETE FROM usuarios WHERE    ID= " + id + ";";
+            MySqlCommand sql_ins = new MySqlCommand(sql, conex);
+            MySqlDataReader LeerDatos = sql_ins.ExecuteReader();
+            conex.Close();
         }
 
 
